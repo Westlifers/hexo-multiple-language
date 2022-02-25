@@ -1,0 +1,22 @@
+<script>
+const app = Vue.createApp({
+    data() {
+        return {
+            languages: {{ languages | safe }},
+            currentParaIndex: 0,
+        }
+    },
+    methods: {
+        change_to_this_lan(language_name){
+            console.log("切换语言！")
+            for (let language_index in this.languages){
+                if (this.languages[language_index].language == language_name){
+                    this.currentParaIndex = language_index
+                }
+            }
+        }
+    }
+})
+
+app.mount("#main-para")
+</script>

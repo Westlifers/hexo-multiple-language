@@ -1,14 +1,16 @@
 var fs = require("hexo-fs")
 var path = require("path")
-// lib中的getbox模块渲染html
+// lib中的三个模块渲染html
 var get_box = require("./lib/getbox.js")
 var get_shitfpara = require("./lib/getshiftepara.js")
+var get_vue = require("./lib/getvue.js")
 
 
 
 // mullan标签，单独使用，显示切换语言部件
 hexo.extend.tag.register('mullan', (args) => {
   let languages = hexo.locals.get('languages')
+
   // 获取切换页面代码
   let shiftparaHtml = get_shitfpara(languages)
   // 获取语言选择部件代码
@@ -17,9 +19,13 @@ hexo.extend.tag.register('mullan', (args) => {
     language_list.push(language.language)
   }
   let boxHtml = get_box(language_list)
+  // 获取vue代码
+  let vueHtml = get_vue(languages)
+
   // 合并后返回，替换标签
-  let Html = shiftparaHtml + boxHtml
+  let Html = '<div id="shiftpara">' + shiftparaHtml + boxHtml + '</div>' + vueHtml
   return Html
+
 }, {ends: false})
 
 // language标签，覆盖一段文本，读取语言项
@@ -47,14 +53,6 @@ hexo.extend.generator.register('box_asset', () => [
         path.resolve(path.resolve(__dirname, "./source"), "box.css"))
     }
   },
-  {
-    path: 'js/box.js',
-    data: () => {
-      return fs.createReadStream(
-        path.resolve(path.resolve(__dirname, "./source"), "box.js")
-      )
-    }
-  }
 ])
 
 
@@ -63,7 +61,7 @@ hexo.extend.injector.register('head_end', () => {
   return '<link rel="stylesheet" href="/css/box.css" type="text/css">'
 })
 
-// 注入js
-hexo.extend.injector.register('body_end', () => {
-  return '<script scr="/js/box.js"></script>'
+// 注入Vue
+hexo.extend.injector.register('head_end', () => {
+  return '<script src="https://unpkg.com/vue@next"></script>'
 })

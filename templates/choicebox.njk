@@ -4,7 +4,7 @@
         <div class="default-select">
             <select>
                 {% for language in language_list %}
-                <option value="1">{{ language }}</option>
+                    <option value="1" :click="change_to_this_lan('{{language}}')">{{ language }}</option>
                 {% endfor %}
             </select>
         </div>
