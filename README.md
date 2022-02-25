@@ -23,7 +23,7 @@ Content for this piece
 >注意！`{% mullan %}`必须放在所有的`{% language %}`标签之后
 
 
-## Translation Service 翻译功能
+## Translation Service 翻译功能 （待开发）
 ```
 {% language language_name source %}
 Content
