@@ -2,9 +2,9 @@
     <div class="box-container">
         <h3 class="mb-30">选择语言</h3>
         <div class="default-select">
-            <select>
+            <select v-model="selected_language">
                 {% for language in language_list %}
-                    <option value="1" :click="change_to_this_lan('{{language}}')">{{ language }}</option>
+                    <option value="{{ language }}">{{ language }}</option>
                 {% endfor %}
             </select>
         </div>

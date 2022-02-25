@@ -1,5 +1,2 @@
-<div id="main-para">
-{% raw %}
-{{ languages[currentParaIndex]["text"] }}
-{% endraw %}
+<div id="main-para" v-html="languages[currentParaIndex]['text']">
 </div>

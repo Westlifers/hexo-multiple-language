@@ -4,19 +4,21 @@ const app = Vue.createApp({
         return {
             languages: {{ languages | safe }},
             currentParaIndex: 0,
+            selected_language: '',
         }
     },
-    methods: {
-        change_to_this_lan(language_name){
-            console.log("切换语言！")
+    watch: {
+        selected_language(new_language, old_language){
+            console.log('语言切换！，从', old_language, '切换到', new_language)
             for (let language_index in this.languages){
-                if (this.languages[language_index].language == language_name){
+                if (this.languages[language_index].language == new_language){
                     this.currentParaIndex = language_index
                 }
             }
+            console.log('切换函数执行完毕')
         }
     }
 })
 
-app.mount("#main-para")
+app.mount("#shiftpara")
 </script>
