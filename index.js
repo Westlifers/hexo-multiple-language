@@ -22,8 +22,11 @@ hexo.extend.tag.register('mullan', (args) => {
   // 获取vue代码
   let vueHtml = get_vue(languages)
 
-  // 合并后返回，替换标签
-  let Html = '<div id="shiftpara">' + shiftparaHtml + boxHtml + '</div>' + vueHtml
+  // 合并这些html代码，注意在语言切换框前截断摘要，防止出现在首页
+  let Html = '<div id="shiftpara">' + shiftparaHtml + '<!--more-->' + boxHtml + '</div>' + vueHtml
+
+  // 注意返回前清空本地变量，防止变量跨文章！
+  hexo.locals.set('languages', [])
   return Html
 
 }, {ends: false})
