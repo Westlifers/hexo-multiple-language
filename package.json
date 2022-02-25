@@ -1,11 +1,12 @@
 {
-  "name": "hexo-my-test",
-  "version": "0.0.1",
-  "description": "",
+  "name": "hexo-multiple-language",
+  "version": "0.1.0",
+  "description": "A hexo plugin allowing you to write multiple language version for your post and offering translation service when required.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "杨荻",
-  "license": "ISC"
+  "repository": "https://github.com/Westlifers/hexo-multiple-language.git",
+  "author": "Westlifers",
+  "license": "MIT",
+  "dependencies": {
+    "nunjucks": "^3.2.3"
+  }
 }
