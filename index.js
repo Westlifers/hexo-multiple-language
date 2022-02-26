@@ -4,11 +4,13 @@ var path = require("path")
 var get_box = require("./lib/getbox.js")
 var get_shitfpara = require("./lib/getshiftepara.js")
 var get_vue = require("./lib/getvue.js")
+// 翻译模块
+var translate = require("./lib/gettranslation.js")
 
 
 
 // mullan标签，单独使用，显示切换语言部件
-hexo.extend.tag.register('mullan', (args) => {
+hexo.extend.tag.register('mullan', (_args) => {
   let languages = hexo.locals.get('languages')
 
   // 获取切换页面代码

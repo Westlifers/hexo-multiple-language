@@ -1,12 +1,13 @@
 {
   "name": "hexo-multiple-language",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A hexo plugin allowing you to write multiple language version for your post and offering translation service when required.",
   "main": "index.js",
   "repository": "https://github.com/Westlifers/hexo-multiple-language.git",
   "author": "Westlifers",
   "license": "MIT",
   "dependencies": {
-    "nunjucks": "^3.2.3"
+    "nunjucks": "^3.2.3",
+    "node-fetch": "^2.6.1"
   }
 }
